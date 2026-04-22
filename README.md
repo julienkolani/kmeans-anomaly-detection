@@ -1,31 +1,27 @@
-# K-Means Anomaly Detection
+# Détection d'Anomalies par K-Means
 
-Unsupervised anomaly detection on banking transaction data using K-means clustering.
+Détection d'anomalies non supervisée sur 20 000 transactions bancaires par clustering K-means.
 
-## Overview
+## Méthodologie
 
-Processes 20,000 synthetic banking transactions with four features: initial amount, transfer amount, amount received, and final amount. Transactions are grouped into 6 clusters using K-means. Anomalies are scored using centroid distance combined with a modified Z-score (MAD-based, threshold > 4), and visualized in 2D via PCA using Plotly. Detected outliers reach Z-scores up to 587.
+- Normalisation des données avec StandardScaler
+- Clustering K-means (6 clusters) sur les features financières
+- Score d'anomalie : distance au centroïde + Z-score modifié (MAD-based, seuil > 4)
+- Visualisation interactive des outliers en 2D via PCA et Plotly
 
-## Tech Stack
+## Résultats
 
-- Python
-- scikit-learn (KMeans, StandardScaler, PCA)
-- pandas, numpy
-- Plotly
-- Jupyter Notebook
+- Jeu de données : 20 000 transactions bancaires
+- Variables : montant initial, montant transféré, montant reçu, solde final
+- Outliers détectés avec des Z-scores jusqu'à 587
 
-## Setup
+## Stack technique
+
+- Python, scikit-learn, Pandas, Plotly, NumPy
+
+## Installation
 
 ```bash
-pip install -r requirements.txt
-jupyter notebook kmeans_anomaly_detection.ipynb
+pip install scikit-learn pandas plotly numpy jupyter
+jupyter notebook
 ```
-
-## Results
-
-- Dataset: 20,000 transactions
-- Clusters: 6
-- Anomaly threshold: modified Z-score > 4
-- Maximum Z-score observed: ~587
-
-See `reports/anomaly_detection_report.pdf` for the full analysis.
